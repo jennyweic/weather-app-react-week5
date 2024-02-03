@@ -1,0 +1,14 @@
+.App h1 {
+  font-size: 45px;
+  margin: 20px;
+  padding: 10px;
+  text-align: center;
+}
+
+.App footer {
+  font-size: 13px;
+  padding: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
