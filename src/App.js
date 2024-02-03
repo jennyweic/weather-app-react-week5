@@ -5,7 +5,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <h1>Weather App using React</h1>
+        <h1>Your local weather app</h1>
         <Weather />
         <footer>
           This Weather App coded with React project is created by Jennifer and
