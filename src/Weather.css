@@ -1,4 +1,56 @@
 .Weather {
   background: linear-gradient(-225deg, #ac32e4 0%, #7918f2 48%, #4801ff 100%);
   color: white;
+  border: 1px solid purple;
+  margin: 3px;
+  padding: 10px;
+}
+
+.Weather h1 {
+  font-size: 40px;
+  text-align: center;
+}
+
+.Weather p {
+  font-size: 20px;
+  text-align: center;
+}
+
+.Weather .row {
+  padding: 10px;
+}
+
+.Weather li {
+  padding: 10px;
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.condition-description {
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.temperature {
+  font-size: 65px;
+  line-height: 8px;
+  padding: 0;
+  margin: 0;
+}
+
+.details {
+  padding-top: 10px;
+  line-height: 8px;
+  font-size: 15px;
+}
+
+.btn {
+  border-radius: 30px;
+  padding: 5px;
+  width: 100px;
+  background: rgb(177, 4, 177);
+  border: 1px solid purple;
+  margin: 0;
+  font-weight: 400;
 }
