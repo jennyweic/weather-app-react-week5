@@ -58,7 +58,7 @@ export function Weather() {
       <div className="row">
         <div className="col-6">
           <ul>
-            <li className="condition-description">
+            <li className="condition-description text-capitalize">
               {" "}
               <img
                 src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
