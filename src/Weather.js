@@ -23,6 +23,7 @@ export function Weather() {
     let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=698445003bc2a9cbfcb050ae4t74oc8b`;
     axios.get(url).then((data) => {
       const weatherData = {
+        date: "Sat, 11:00 am",
         temperature: Math.round(data.data.temperature.current),
         description: data.data.condition.description,
         wind: data.data.wind.speed,
@@ -53,7 +54,7 @@ export function Weather() {
       </form>
 
       <h1>{city}</h1>
-      <p>Sat, 11:00 am</p>
+      <p>{weatherData.date}</p>
 
       <div className="row">
         <div className="col-6">
