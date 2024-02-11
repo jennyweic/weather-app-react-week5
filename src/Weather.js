@@ -36,6 +36,7 @@ export function Weather() {
         wind: data.data.wind.speed,
         humidity: data.data.temperature.humidity,
         feels_like: data.data.temperature.feels_like,
+        icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${data.data.condition.icon}.png`,
       };
 
       setWeatherData(weatherData);
@@ -71,10 +72,7 @@ export function Weather() {
               <ul>
                 <li className="condition-description text-capitalize">
                   {" "}
-                  <img
-                    src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-                    alt="clear-sky-icon"
-                  />
+                  <img src={weatherData.icon} alt={""} />
                   {weatherData.description}
                 </li>
                 <li className="temperature">{weatherData.temperature}°C</li>
