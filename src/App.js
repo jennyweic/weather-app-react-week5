@@ -11,6 +11,7 @@ export default function App() {
           <a
             href="https://github.com/jennyweic/weather-app-react-week5"
             target="_blank"
+            rel="noreferrer"
           >
             My Local Weather App
           </a>{" "}
