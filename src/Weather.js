@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate";
+import WeatherTemperature from "./WeatherTemperature";
 import "./Weather.css";
 
 export function Weather() {
@@ -75,7 +76,7 @@ export function Weather() {
                   <img src={weatherData.icon} alt={""} />
                   {weatherData.description}
                 </li>
-                <li className="temperature">{weatherData.temperature}°C</li>
+                <WeatherTemperature celsius={weatherData.temperature} />
               </ul>
             </div>
             <div className="col-6">
