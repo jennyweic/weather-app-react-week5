@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css";
 
 export function Weather() {
@@ -29,7 +30,7 @@ export function Weather() {
     let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=698445003bc2a9cbfcb050ae4t74oc8b`;
     axios.get(url).then((data) => {
       const weatherData = {
-        date: "Sat, 11:00 am",
+        date: new Date(data.data.time * 1000),
         temperature: Math.round(data.data.temperature.current),
         description: data.data.condition.description,
         wind: data.data.wind.speed,
@@ -62,7 +63,9 @@ export function Weather() {
       {weatherData ? (
         <div>
           <h1>{city}</h1>
-          <p>{weatherData.date}</p>
+          <p>
+            <FormattedDate date={weatherData.date} />
+          </p>
           <div className="row">
             <div className="col-6">
               <ul>
