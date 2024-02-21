@@ -95,8 +95,8 @@ export function Weather() {
         <div>make this pretty</div>
       )}
 
-      <WeatherForecast icon={weatherData.icon} />
       <WeatherForecast
+        icon={weatherData.icon}
         coordinates_longitude={weatherData.coordinates_longitude}
         coordinates_latitude={weatherData.coordinates_latitude}
       />
