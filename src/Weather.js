@@ -39,6 +39,8 @@ export function Weather() {
         humidity: data.data.temperature.humidity,
         feels_like: data.data.temperature.feels_like,
         icon: `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${data.data.condition.icon}.png`,
+        coordinates_longitude: data.data.coordinates.longitude,
+        coordinates_latitude: data.data.coordinates.latitude,
       };
 
       setWeatherData(weatherData);
@@ -94,6 +96,10 @@ export function Weather() {
       )}
 
       <WeatherForecast icon={weatherData.icon} />
+      <WeatherForecast
+        coordinates_longitude={weatherData.coordinates_longitude}
+        coordinates_latitude={weatherData.coordinates_latitude}
+      />
     </div>
   );
 }
