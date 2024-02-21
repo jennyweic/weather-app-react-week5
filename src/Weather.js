@@ -93,7 +93,7 @@ export function Weather() {
         <div>make this pretty</div>
       )}
 
-      <WeatherForecast />
+      <WeatherForecast icon={weatherData.icon} />
     </div>
   );
 }
