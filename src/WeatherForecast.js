@@ -8,25 +8,18 @@ export default function WeatherForecast(props) {
   console.log(props);
 
   let [forecastLoaded, setForecastLoaded] = useState(false);
-  let [forecastData, setForecastData] = useState(null);
+  let [dailyForecastData, setDailyForecastData] = useState(null);
 
   function handleResponse(response) {
-    console.log(response);
-
-    const forecastData = {
-      date: new Date(response.data.daily[1].time * 1000),
-      max_temperature: response.data.daily[1].temperature.maximum,
-      min_temperature: response.data.daily[1].temperature.minimum,
-    };
-
-    setForecastData(forecastData);
+    console.log(response.daily);
+    setDailyForecastData(response.daily);
     setForecastLoaded(true);
   }
 
   let longitude = props.coordinates_longitude;
   let latitude = props.coordinates_latitude;
 
-  if (!longitude || !latitude) return null;
+  if (!dailyForecastData) return null;
 
   if (forecastLoaded) {
     return (
@@ -34,16 +27,17 @@ export default function WeatherForecast(props) {
         <div className="row">
           <div className="col">
             <div className="WeatherForecast-day">
-              {/* {JSON.stringify(forecastData.date)} */}
-              <ForecastFormatDate date={forecastData.date} />
+              <ForecastFormatDate
+                date={new Date(dailyForecastData[1].time * 1000)}
+              />
             </div>
             <img src={props.icon} />
             <div className="WeatherForecast-temperature">
               <span className="WeatherForecast-temperature-max">
-                {Math.round(forecastData.max_temperature)}°
+                {Math.round(dailyForecastData[1].temperate.maximum)}°
               </span>
               <span className="WeatherForecast-temperature-min">
-                {Math.round(forecastData.min_temperature)}°
+                {Math.round(dailyForecastData[1].temperature.minimum)}°
               </span>
             </div>
           </div>
