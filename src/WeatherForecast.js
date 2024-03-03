@@ -38,7 +38,10 @@ export default function WeatherForecast(props) {
                     date={new Date(forecastData.time * 1000)}
                   />
                 </div>
-                <img src={forecastData.condition.icon_url} />
+                <img
+                  src={forecastData.condition.icon_url}
+                  alt="weather_icon_url"
+                />
                 <div className="WeatherForecast-temperature">
                   <span className="WeatherForecast-temperature-max">
                     {Math.round(forecastData.temperature.maximum)}°
