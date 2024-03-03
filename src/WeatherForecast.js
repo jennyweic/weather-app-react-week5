@@ -11,15 +11,9 @@ export default function WeatherForecast(props) {
   let [forecastData, setForecastData] = useState(null);
 
   function handleResponse(response) {
-    console.log(response);
+    console.log(response.data.daily);
 
-    const forecastData = {
-      date: new Date(response.data.daily[1].time * 1000),
-      max_temperature: response.data.daily[1].temperature.maximum,
-      min_temperature: response.data.daily[1].temperature.minimum,
-    };
-
-    setForecastData(forecastData);
+    setForecastData(response.data.daily);
     setForecastLoaded(true);
   }
 
@@ -30,24 +24,30 @@ export default function WeatherForecast(props) {
 
   if (forecastLoaded) {
     return (
-      <div className="WeatherForecast">
-        <div className="row">
-          <div className="col">
-            <div className="WeatherForecast-day">
-              {/* {JSON.stringify(forecastData.date)} */}
-              <ForecastFormatDate date={forecastData.date} />
+      <div className="d-flex flex-row justify-content-center flex-wrap">
+        {forecastData.map(function (forecastData, index) {
+          return (
+            <div className="row" key={index}>
+              <div className="col">
+                <div className="WeatherForecast-day">
+                  {/* {JSON.stringify(forecastData.date)} */}
+                  <ForecastFormatDate
+                    date={new Date(forecastData.time * 1000)}
+                  />
+                </div>
+                <img src={props.icon} />
+                <div className="WeatherForecast-temperature">
+                  <span className="WeatherForecast-temperature-max">
+                    {Math.round(forecastData.temperature.maximum)}°
+                  </span>
+                  <span className="WeatherForecast-temperature-min">
+                    {Math.round(forecastData.temperature.minimum)}°
+                  </span>
+                </div>
+              </div>
             </div>
-            <img src={props.icon} />
-            <div className="WeatherForecast-temperature">
-              <span className="WeatherForecast-temperature-max">
-                {Math.round(forecastData.max_temperature)}°
-              </span>
-              <span className="WeatherForecast-temperature-min">
-                {Math.round(forecastData.min_temperature)}°
-              </span>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     );
   } else {
