@@ -26,6 +26,10 @@ export default function WeatherForecast(props) {
     return (
       <div className="d-flex flex-row justify-content-center flex-wrap">
         {forecastData.map(function (forecastData, index) {
+          if (index === 0) {
+            return null;
+          }
+
           return (
             <div className="row" key={index}>
               <div className="col">
